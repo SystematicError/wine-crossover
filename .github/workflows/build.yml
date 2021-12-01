@@ -1,0 +1,31 @@
+name: Wine Crossover Build
+
+on: [push]
+
+jobs:
+  build-wine:
+    runs-on: ubuntu-18.04
+
+    steps:
+      - name: Compile Wine
+        run: |
+          sudo apt update
+          sudo apt install apt-transport-https ca-certificates curl software-properties-common
+          curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+          sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+          sudo apt update
+          apt-cache policy docker-ce
+          sudo apt install docker-ce
+          sudo systemctl status docker
+
+          wget -O Dockerfile https://raw.githubusercontent.com/SystematicError/wine-crossover/master/Dockerfile
+          sudo docker build -t wine-build-image .
+
+          wget -O compile-wine.sh https://raw.githubusercontent.com/SystematicError/wine-crossover/master/compile-wine.sh
+          cat compile-wine.sh | sudo docker run -i -v $(realpath ./build):/mnt/build --name wine-build-container wine-build-image
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: wine-crossover-build
+          path: build/wine-crossover
