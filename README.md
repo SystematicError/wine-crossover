@@ -1,6 +1,6 @@
 ## Wine Crossover
 
-This project aims to provide easy way to install Codeweavers' fork of wine with more ease. If you are not already aware, Codeweavers maintains an enterprise version of [Wine](https://winehq.org) called [Crossover](https://codeweavers.com). Crossover is a slightly tweaked version of Wine including some quality of life features such as a GUI. Whilst Crossover is paid, however, all their code except the GUI is open source and hosted on their [FTP server](https://media.codeweavers.com/pub/crossover/source).
+This project aims to provide easy way to install Codeweavers' fork of wine with more ease. If you are not already aware, Codeweavers maintains an enterprise version of [Wine](https://winehq.org) called [Crossover](https://codeweavers.com/crossover). Crossover is a slightly tweaked version of Wine including some quality of life features such as a GUI. Whilst Crossover is paid, however, all their code except the GUI is open source and hosted on their [FTP server](https://media.codeweavers.com/pub/crossover/source).
 
 **Note:** Even if you can get some of Crossover's feature through this project, I highly recommend paying for Crossover anyways, as most of the code contributed to the Wine project is from Codeweavers themselves so buying Crossover helps contribute to Wine itself. Furthermore you can get a much more polished experience and technical support from Codeweavers themselves.
 
